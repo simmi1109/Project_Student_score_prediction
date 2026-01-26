@@ -134,7 +134,8 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
-# Environments
+# Environments adding it here to ignore artifacts folder so that it does not get pushed to remote repo 
+.artifacts 
 .env
 .envrc
 .venv
