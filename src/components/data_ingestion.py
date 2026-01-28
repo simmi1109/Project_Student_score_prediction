@@ -7,7 +7,8 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass #this is used because it provides a decorator and functions for automatically 
         #adding generated special methods such as __init__() and __repr__() to user-defined classes.
-
+from src.components.data_transformation import DataTransformation
+from src.components.data_transformation import DataTransformationconfig
 
 @dataclass
 class DataIngestionconfig: #this helps in storing the file paths, creating a function so we can call it whenever needed
@@ -27,7 +28,7 @@ class DataIngestion:
         logging.info("Entered the data ingestion method or component")
         
         try:
-            df = pd.read_csv("notebook/data/stud.csv")  #THIS IS THE SOURCE,CAN CHANGE ONLY THIS ANYTIME A NEW DATA SOURCE(API,DB CONNECTS,CSV ETC) COMES IN, THE REST OF THE CODE REMAINS SAME
+            df = pd.read_csv("notebook/data/stud.csv")  #THIS IS THE SOURCE,CAN CHANGE ONLY THIS ANYTIME A NEW DATA SOURCE(API,DB CONNECTS,CSV) COMES IN, THE REST OF THE CODE REMAINS SAME
             logging.info("Read the dataset as dataframe")
 
             os.makedirs(os.path.dirname(self.ingestion_config.train_data_path), exist_ok=True) #creating the artifact folder if not exists
@@ -53,3 +54,6 @@ class DataIngestion:
 if __name__=="__main__":
     obj = DataIngestion()
     train_data, test_data = obj.initiate_data_ingestion()
+
+    data_transformation= DataTransformation()
+    data_transformation.initiate_data_transformation(train_data, test_data)
