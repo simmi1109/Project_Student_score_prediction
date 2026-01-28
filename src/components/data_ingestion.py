@@ -8,7 +8,11 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass #this is used because it provides a decorator and functions for automatically 
         #adding generated special methods such as __init__() and __repr__() to user-defined classes.
 from src.components.data_transformation import DataTransformation
-from src.components.data_transformation import DataTransformationconfig
+from src.components.data_transformation import DataTransformationonfig
+from src.components.model_trainer import ModelTrainer
+from src.components.model_trainer import  ModelTrainerConfig
+
+
 
 @dataclass
 class DataIngestionconfig: #this helps in storing the file paths, creating a function so we can call it whenever needed
@@ -45,7 +49,7 @@ class DataIngestion:
             
             return(
                 self.ingestion_config.train_data_path,
-                self.ingestion_config.test_data_path
+                self.ingestion_config.test_data_path    
             )
         
         except Exception as e:
@@ -56,4 +60,7 @@ if __name__=="__main__":
     train_data, test_data = obj.initiate_data_ingestion()
 
     data_transformation= DataTransformation()
-    data_transformation.initiate_data_transformation(train_data, test_data)
+    train_arr, test_arr,_ = data_transformation.initiate_data_transformation(train_data, test_data)
+
+    model_trainer= ModelTrainer()
+    print(model_trainer.initiate_model_trainer(train_arr, test_arr))

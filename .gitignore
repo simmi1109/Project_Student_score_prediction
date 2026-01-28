@@ -135,7 +135,6 @@ celerybeat.pid
 *.sage.py
 
 # Environments adding it here to ignore artifacts folder so that it does not get pushed to remote repo 
-.artifacts 
 .env
 .envrc
 .venv

@@ -43,7 +43,7 @@ class DataTransformation:
             cat_pipeline= Pipeline(
                 steps=[
                     ("imputer", SimpleImputer(strategy='most_frequent')), #handling missing values by most frequent value
-                       ("one_hot_encoder", OneHotEncoder()), #one hot encoding the categorical features
+                       ("one_hot_encoder", OneHotEncoder(handle_unknown="ignore")), #one hot encoding the categorical features
                        ("scaler", StandardScaler(with_mean=False))] #scaling the categorical features
             )
             logging.info("Numerical and categorical pipelines created")
