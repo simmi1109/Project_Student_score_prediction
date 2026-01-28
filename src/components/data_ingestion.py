@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass #this is used because it provides a decorator and functions for automatically 
         #adding generated special methods such as __init__() and __repr__() to user-defined classes.
 from src.components.data_transformation import DataTransformation
-from src.components.data_transformation import DataTransformationonfig
+from src.components.data_transformation import DataTransformationconfig
 from src.components.model_trainer import ModelTrainer
 from src.components.model_trainer import  ModelTrainerConfig
 
