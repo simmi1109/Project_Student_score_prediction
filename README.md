@@ -44,3 +44,7 @@ Built a Flask web application
 Created HTML frontend for user input
 Integrated trained model for real-time prediction
 End-to-end ML deployment from training → inference
+Used Docker to containerize the application and then hosted it on Azure Web Apps via Azure Container Registry(ACR), enabling real-time prediction through a REST-based interface.
+
+
+App Link -- https://studentperformance-cagbgzfdemcreue3.centralus-01.azurewebsites.net/predict
